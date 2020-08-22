@@ -37,3 +37,11 @@ p1
 p1 <- ggplot(data = exports_data, mapping = aes(x = year, y = export, color = product)) +
   geom_line(size = 1.5)
 p1
+
+# changing variables display
+exports_data <- exports_data %>%
+  mutate(product = factor(product, levels = c("copper", "others"), labels = c("Copper", "Pulp wood, Fruit, Salmon & Others")))
+p1 <- ggplot(exports_data, aes(x = year, y = export, color = product)) +
+  geom_line(size = 1.5) +
+  theme(legend.position = "bottom", legend.direction = "horizontal", legend.title = element_blank())
+p1
