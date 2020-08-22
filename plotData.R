@@ -32,3 +32,8 @@ exports_data <- read_csv(chilean_exports)
 p1 <- ggplot(data = exports_data, mapping = aes(x = year, y = export, color = product)) +
   geom_line()
 p1
+
+# adjusting line width
+p1 <- ggplot(data = exports_data, mapping = aes(x = year, y = export, color = product)) +
+  geom_line(size = 1.5)
+p1
